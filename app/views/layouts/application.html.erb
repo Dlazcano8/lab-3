@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Y</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  
+    <style>
+      body {
+          font-family: Monocraft, sans-serif     
+      }
+
+      footer {
+        background-color: rgb(202, 238, 255);
+        padding: 20px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%
+      }
+      
+    </style>   
+  
+  </head>
+
+  <body>
+    
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Y</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link" href="/about">About</a>
+          <a class="nav-link" href="/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <footer>
+    <div class="container text-center">
+      <p>&copy Diego S.A &copy</p>
+      <a href="#" style="color: black;"> -- Social Links -- </a> <!--It said not functional that's why I didn't put any links to it-->
+    </div>
+  </footer>
+  
+    <%= yield %>
+  </body>
+</html>
