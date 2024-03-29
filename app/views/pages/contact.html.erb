@@ -1,27 +1,47 @@
 
 <body>
 
-    <form class="row g-3" style="margin: 5px;">
+    <form class="row g-3" style="margin: 5px;" id="FormContact">
     
     <div class="col-md-12">
         <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name">
+        <input type="text" class="form-control" id="FormName">
     </div>    
     
     
     <div class="col-md-12">
         <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" class="form-control" id="inputEmail4">
+        <input type="email" class="form-control" id="FormEmail">
     </div>
 
     <div class="col-md-12">
         <label for="Message" class="form-label">Message</label>
-        <input type="text" class="form-control" id="Message">
+        <input type="text" class="form-control" id="FormMessage">
     </div>    
 
     <div class="col-12">
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <button type="submit" class="btn btn-primary" id="submitButton">Sign in</button>
     </div>
     </form>
+
+    
+    <script>
+    const submitButton = document.getElementById('FormContact');
+
+    submitButton.addEventListener("submit",function(event){
+        
+        const name = document.getElementById("FormName").value
+        const email = document.getElementById("FormEmail").value
+        const message = document.getElementById("FormMessage").value
+
+        if (name.trim() === "" || email.trim()==="" || message.trim()===""){
+            alert("Please complete all fields");
+        } else {
+            alert("Thank you for your message, we will contact you soon.");
+        
+        }
+    })
+    </script>
+    
 
 </body>
