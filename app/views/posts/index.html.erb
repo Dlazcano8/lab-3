@@ -1,34 +1,49 @@
-<div class="row" style="margin-left: 5px; margin-top: 5px;">
+<div class="row" style="margin-left: 25px; margin-top: 25px;">
     <div class="col">
         <h1>Posts Ywitter</h1>
     </div>
 </div> 
 
-<div class="row" style="margin-left: 5px; margin-top: 5px;">
-    <div class="col-4">
-        <div class="row">
-            <div class="col border border-2 rounded-start border-black" style="margin: 2px;">
-                <p>@username</p>
+<% @posts.each do |post| %>
+    <div class="row justify-content-center " style="margin-bottom: 20px">
+        <div class="col-4 border border-black border-4 rounded-4" style="padding: 20px; background-color: white">
+            <div class="row">
+                <div class="col-6 border border-black border-4 rounded-4 black_post d-flex align-items-center">
+                <% @user = @users.find_by(id: post.user_id) %>
+                    <% if @user %>
+                    <h4><%= @user.name %></h4>
+                <% end %>
+                
+                
+                </div>
+                <div class="col-4 border border-black border-4 rounded-4 black_post" style="padding-left:10px; padding-right: 10px;">
+                    <h7><%= post.title %></h7>
+                </div>
+                <div class="col-2 d-flex justify-content-center align-items-center border border-black border-4 rounded-4 black_post">
+
+                    <%= link_to post, class: "btn"  do %>
+                        <i class="bi bi-eye"></i>                                
+                    <% end %>
+                </div>
             </div>
-            <div class="col border border-2 rounded-end border-black" style="margin: 2px;">
-                <p>Title</p>
+            <div class="row">
+                <div class="col-12 border border-black border-4 rounded-4 black_post" style= "margin: 2px">
+                    <p><%= post.content %></p>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12 border border-2 rounded border-black" style="margin: 2px;">
-                <p>Content</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col border border-2 rounded-start border-black" style="margin: 2px;">
-                <p>Published</p>
-            </div>
-            <div class="col border border-2 border-black" style="margin: 2px;">
-                <p>Answers</p>
-            </div>
-            <div class="col border border-2 rounded-end border-black" style="margin: 2px;">
-                <p>Likes</p>
+            <div class="row">
+                <div class="col-4 border border-black border-4 rounded-4 black_post d-flex align-items-center">
+                    <p><%= post.published_at.strftime("%Y-%m-%d") %></p>
+                </div>
+                <div class="col-4 border border-black border-4 rounded-4 black_post d-flex align-items-center">
+                    <p>Answers: <%= post.answers_count %></p>
+                </div>
+                <div class="col-4 border border-black border-4 rounded-4 black_post d-flex align-items-center">
+                    <p>Likes: <%= post.likes_count%></p>
+                </div>
             </div>
         </div>
     </div>
-</div>
+<% end %>
+
+
